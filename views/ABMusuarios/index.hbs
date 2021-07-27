@@ -1,0 +1,96 @@
+{{> header}}
+
+<link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+
+<div class="container" style="">
+  <h3>ABM Usuarios</h3>
+  {{{error}}}
+  <hr>
+  <div class="col-md-12" style="float: none;">
+    <a href="/registrarse" class="btn btn-lg btn-primary">registrar un usuario</a>
+  </div>
+  <hr>
+  <input class="form-control" id="myInput" type="text" placeholder="Filtrar busqueda">
+  <table class="table table-striped">
+    <thead>
+      <tr style="text-align: center;">
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>esAdmin</th>
+        <th>BackOffice</th>
+      </tr>
+    </thead>
+    {{#each usuarios}}
+       {{this.nombre}}
+      {{/each}}
+    <tbody id="tablaProductos">
+      {{#each usuarios}}
+        <tr>
+          <td style="text-align: center;">{{this.nombre}}</td>
+          <td style="text-align: center;">{{this.apellido}}</td>
+          <td style="text-align: center;">{{this.email}}</td>
+          <!-- Material checked -->
+          <td style="text-align:center;">
+            {{#if this.esAdmin}}
+              <label class="switch">
+                <input type="checkbox" name="A{{this._id}}" onclick="activar('{{this._id}}','A')" checked>
+                <span class="slider round"></span>
+              </label>
+              {{else}}
+              <label class="switch">
+                <input type="checkbox" name="A{{this._id}}" onclick="activar('{{this._id}}','A')">
+                <span class="slider round"></span>
+              </label>
+            {{/if}}
+          </td>
+          <td style="text-align:center;">
+            {{#if this.BackOffice}}
+              <label class="switch">
+                <input type="checkbox" name="P{{this._id}}" onclick="activar('{{this._id}}','P')" checked>
+                <span class="slider round"></span>
+              </label>
+              {{else}}
+              <label class="switch">
+                <input type="checkbox" name="P{{this._id}}" onclick="activar('{{this._id}}','P')">
+                <span class="slider round"></span>
+              </label>
+            {{/if}}
+          </td>
+          <td>
+            <a href="/ABMusuarios/borrar/{{ this._id }}" onclick="return confirm('Esta seguro que desea borrar este Usuario?')"><button class="btn btn-primary" type="submit" data-toggle="tooltip" data-placement="top" title="Borrar"><span class="glyphicon glyphicon-remove"></span></button></a>
+          </td>
+        </tr>
+      {{/each }}
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+  function activar(id, tipo) {
+      var activar = document.getElementsByName(tipo+id)[0].checked;
+      var direccion = "/ABMusuarios/Activar"
+      $.ajax(
+        {
+          url: direccion,
+          type: 'POST',
+          data: { Activar: activar, ID: id, TIPO: tipo},
+          success: function(result){
+            if(result) {
+              if(result.error) {
+                document.getElementById('errores').innerHTML = document.getElementById('errores').innerHTML + result.error;
+              }
+            };
+          },
+          error: function(excepcion){
+              alert('error');
+              console.log(excepcion);
+          }
+      });
+    };
+</script>
+
+<!-- /.container -->
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

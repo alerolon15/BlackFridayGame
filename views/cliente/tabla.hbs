@@ -1,0 +1,52 @@
+{{> header}}
+<style media="screen">
+  #tablaSolicitudes > td{
+    text-align: left;
+  }
+</style>
+<link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+<div class="container" style="margin-top:15px;">
+
+  <h3>Tabla de Clientes</h3>
+  <hr>
+<table id="tablaSolicitudes" class="display" style="width:100%">
+  <thead>
+      <tr>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Email</th>
+          <th>Descuentos</th>
+          <th>Acciones</th>
+      </tr>
+  </thead>
+  <tbody>
+    {{#each clientes}}
+      <tr>
+          <td>{{ this.firstname }}</td>
+          <td>{{ this.lastname }}</td>
+          <td>{{ this.mail }}</td>
+          <td>{{ this.discountCount }}</td>
+          <td>
+            <button onclick="VerCliente('{{this.mail}}')" class="btn btn-sm btn-outline-info" type="submit" data-toggle="tooltip" data-placement="top" title="Detalles"><span class="glyphicon glyphicon-search"></span></button>
+            <a href="/Clientes/editar/{{this.mail}}"><button class="btn btn-sm btn-outline-success" type="submit" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button></a>
+          </td>
+      </tr>
+    {{/each}}
+  </tbody>
+  <tfoot>
+    <tr>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Email</th>
+          <th>Descuentos</th>
+          <th>Acciones</th>
+    </tr>
+  </tfoot>
+
+</table>
+
+</div>
+<!-- /.container -->
+
+{{> modals }}

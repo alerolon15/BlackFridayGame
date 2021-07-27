@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Black Friday Posadas">
+  <meta name="author" content="Alejandro Rolon - alerolon15@gmail.com">
+  <title>{{title}}</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/sb-admin.css" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/bootstrap-switch.css' />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <!-- Custom styles for this template-->
+
+</head>
+  <body class="{{bgClass}}">
+    <div id="wrapper">
+          <!-- Sidebar -->
+          <ul class="sidebar navbar-nav col-md-2" style="position: fixed; min-height: 100%;margin-top: 50px;">
+            {{#usuario}}
+              {{#if this.esAdmin }}
+                <li class="nav-item">
+                  <a class="nav-link" href="/ABMusuarios">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>ABM Usuarios</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Configuracion">
+                    <i class="fas fa-fw fa-cogs"></i>
+                    <span>Configuración</span>
+                  </a>
+                </li>
+              {{/if}}
+              {{#if this.BackOffice }}
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Comercios</span>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="pagesDropdown" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 56px, 0px);">
+                    <a class="dropdown-item" href="">Cargar</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Clientes">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Clientes</span>
+                  </a>
+                </li>
+              {{/if}}
+            {{/usuario}}
+          </ul>
+          <div id="content-wrapper" class="col-xs-12 col-md-10 col-sm-offset-2" style="background-color:#fefefe;">
+            <div class="container">
+              {{{body}}}
+            </div>
+          </div>
+          <!-- /.content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    {{> footer}}
+    <!-- Styles -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/dataTable/datatable.css">
+    <script src="/dataTable/datatable.js"></script>
+    <script src="/js/AjaxApi.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#tablaProductos tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#tablaSolicitudes').DataTable({
+          "language":
+            {
+            	"sProcessing":     "Procesando...",
+            	"sLengthMenu":     "Mostrar _MENU_ registros",
+            	"sZeroRecords":    "No se encontraron resultados",
+            	"sEmptyTable":     "Ningún dato disponible en esta tabla",
+            	"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            	"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            	"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            	"sInfoPostFix":    "",
+            	"sSearch":         "Buscar:",
+            	"sUrl":            "",
+            	"sInfoThousands":  ",",
+            	"sLoadingRecords": "Cargando...",
+            	"oPaginate": {
+            		"sFirst":    "Primero",
+            		"sLast":     "Último",
+            		"sNext":     "Siguiente",
+            		"sPrevious": "Anterior"
+            	},
+            	"oAria": {
+            		"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+            		"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            	}
+            }
+
+        });
+      } );
+    </script>
+  </body>
+
+  </html>

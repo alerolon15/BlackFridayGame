@@ -1,0 +1,56 @@
+{{> header}}
+<link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+<div class="container">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header">Registrar una cuenta</div>
+      <div class="card-body">
+        <form action="/registrarse" autocomplete="off" method="POST">
+          {{{error}}}
+          {{#if errores}}
+            {{#each errores}}
+              <div class='alert alert-danger' role='alert'>{{this}}</div>
+            {{/each}}
+          {{/if}}
+          <div class="form-group">
+            <div class="">
+              <div class="col-md-6">
+                <label for="exampleInputName">Nombre</label>
+                <input class="form-control" type="text" aria-describedby="nameHelp" name="nombre" placeholder="Nombre">
+              </div>
+              <div class="col-md-6">
+                <label for="exampleInputLastName">Apellido</label>
+                <input class="form-control" type="text" aria-describedby="nameHelp" name="apellido" placeholder="Apellido">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-12">
+              <label for="exampleInputEmail1">Email</label>
+              <input class="form-control" type="email" aria-describedby="emailHelp" name="email" placeholder="email">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="">
+              <div class="col-md-6">
+                <label for="exampleInputPassword1">Contraseña</label>
+                <input class="form-control" type="password" name="password" placeholder="Contraseña">
+              </div>
+              <div class="col-md-6">
+                <label for="exampleConfirmPassword">Confirmar Contraseña</label>
+                <input class="form-control" type="password" name="password_confirmation" placeholder="Confirmar Contraseña">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-12">
+              <button class="btn btn-lg btn-primary btn-block botonReg" type="submit">registrarse</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- /.container -->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

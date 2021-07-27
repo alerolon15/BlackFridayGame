@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="card card-login mx-auto mt-5">
+    <div class="card-header" style="background: black;"><img src="/images/logos/blackcolor.png" class="img-responsive" alt="Black Friday"></div>
+    <div class="card-body">
+      <div class="text-center mt-4 mb-5">
+        <h4>Olvidaste tu contraseña?</h4>
+        <p>Ingresá tu email y nos encargaremos de enviarte instrucciones de como recuperarla.</p>
+      </div>
+      <form action="/recuperar" autocomplete="off" method="POST">
+        {{{error}}}
+        {{#if errores}}
+          {{#each errores}}
+            <div class='alert alert-danger' role='alert'>{{this}}</div>
+          {{/each}}
+        {{/if}}
+        <div class="form-group">
+          <input class="form-control" name="email" type="email" aria-describedby="emailHelp" placeholder="Ingresá tu email">
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Recuperar Contraseña</button>
+      </form>
+      <div class="text-center">
+        <a class="d-block small" href="/">Volver al Inicio</a>
+      </div>
+    </div>
+  </div>
+</div>
