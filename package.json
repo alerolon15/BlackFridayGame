@@ -1,0 +1,19 @@
+{
+  "name": "blackfridaygame",
+  "version": "1.0.0",
+  "description": "Backend BFGame",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alerolon15/BlackFridayGame.git"
+  },
+  "author": "Alejandro Rolon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alerolon15/BlackFridayGame/issues"
+  },
+  "homepage": "https://github.com/alerolon15/BlackFridayGame#readme"
+}
