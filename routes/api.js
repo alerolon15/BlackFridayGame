@@ -3,7 +3,7 @@ const router = express.Router();
 const nodemailer = require('nodemailer');
 const Counter = require('../models/counter');
 const Configuracion = require('../models/configuracion');
-
+const Client = require('../models/client');
 
 router.get('/verCliente', async (req,res) =>{
   let cuit = req.query.CUIT;
@@ -17,6 +17,40 @@ router.get('/verCliente', async (req,res) =>{
   }
 });
 
+router.post('/loginCliente', async (req,res) =>{
+  let firstname = req.body.FIRSTNAME;
+  let lastname = req.body.LASTNAME;
+  let phone = req.body.PHONE;
+  let mail = req.body.MAIL.toLowerCase();
+  let discountCount = req.body.DISCOUNTCOUNT;
+  try {
+    let cliente = await Client.findOne({mail});
+    if (cliente) {
+      res.status(200).json({status: 'Cliente ya existe', cliente});
+    }else
+    if (!cliente) {
+      let data = {
+        firstname,
+        lastname,
+        phone,
+        mail,
+        discountCount
+      };
+      let nuevoCliente = new Client(data);
+      nuevoCliente.save(function(err){
+        if(!err){
+          res.status(200).json({status: 'Cliente Creado con exito', nuevoCliente});
+        }
+        if(err) {
+          res.status(500).json({status: 'error al crear cliente', nuevoCliente})
+        }
+      });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(200).json({status: 'error',error:'Hubo un error al consultar el cliente.'});
+  }
+});
 
 router.post('/guardarConfig', async (req, res) => {
   try {
