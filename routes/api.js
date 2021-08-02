@@ -18,15 +18,15 @@ router.get('/verCliente', async (req,res) =>{
 });
 
 router.post('/loginCliente', async (req,res) =>{
-  let firstname = req.body.FIRSTNAME;
-  let lastname = req.body.LASTNAME;
-  let phone = req.body.PHONE;
-  let mail = req.body.MAIL.toLowerCase();
-  let discountCount = req.body.DISCOUNTCOUNT;
+  let firstname = req.body.firstname;
+  let lastname = req.body.lastname;
+  let phone = req.body.phone;
+  let mail = req.body.mail.toLowerCase();
+  let discountCount = req.body.discountCount;
   try {
     let cliente = await Client.findOne({mail});
     if (cliente) {
-      res.status(200).json({status: 'Cliente ya existe', cliente});
+      res.status(200).json({status: 'success',message: 'Cliente ya existe', cliente});
     }else
     if (!cliente) {
       let data = {
@@ -37,18 +37,18 @@ router.post('/loginCliente', async (req,res) =>{
         discountCount
       };
       let nuevoCliente = new Client(data);
-      nuevoCliente.save(function(err){
+      await nuevoCliente.save(function(err){
         if(!err){
-          res.status(200).json({status: 'Cliente Creado con exito', nuevoCliente});
+          res.status(200).json({status: 'success',message: 'Cliente Creado con exito', nuevoCliente});
         }
         if(err) {
-          res.status(500).json({status: 'error al crear cliente', nuevoCliente})
+          res.status(500).json({status: 'error', message: 'error al crear cliente', nuevoCliente})
         }
       });
     }
   } catch (err) {
     console.log(err);
-    res.status(200).json({status: 'error',error:'Hubo un error al consultar el cliente.'});
+    res.status(200).json({status: 'error',message:'Hubo un error al consultar el cliente.'});
   }
 });
 

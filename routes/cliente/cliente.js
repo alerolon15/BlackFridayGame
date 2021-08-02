@@ -76,5 +76,4 @@ router.post('/editarCliente', async (req, res, next) => {
   }
 });
 
-
 module.exports = router;
