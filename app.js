@@ -28,6 +28,7 @@ const recuperar = require('./routes/user/recuperar');
 const configuracion = require('./routes/config/configuracion');
 const ABMusuarios = require('./routes/user/ABMusuarios');
 const cliente = require('./routes/cliente/cliente');
+const reward = require('./routes/reward/reward');
 
 
 const app = express();
@@ -90,6 +91,7 @@ app.use('/recuperar', recuperar);
 app.use('/Configuracion', configuracion);
 app.use('/ABMusuarios', ABMusuarios);
 app.use('/Clientes', cliente);
+app.use('/Premios', reward);
 
 
 // catch 404 and forward to error handler

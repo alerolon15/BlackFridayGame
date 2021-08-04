@@ -1,0 +1,52 @@
+{{> header}}
+<style media="screen">
+  #tablaSolicitudes > td{
+    text-align: left;
+  }
+</style>
+<link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+<div class="container" style="margin-top:15px;">
+
+  <h3>Tabla de premios</h3>
+  <hr>
+<table id="tablaSolicitudes" class="display" style="width:100%">
+  <thead>
+      <tr>
+          <th>id</th>
+          <th>comercio</th>
+          <th>imagen</th>
+          <th>stock</th>
+          <th>mensaje</th>
+      </tr>
+  </thead>
+  <tbody>
+    {{#each rewards}}
+      <tr>
+          <td>{{ this.rewardName }}</td>
+          <td>{{ this.commerce }}</td>
+          <td>{{ this.urlImage }}</td>
+          <td>{{ this.mount }}</td>
+          <td>{{ this.discountText }}</td>
+          <td>
+            <a href="/Reward/editar/{{this.rewardName}}"><button class="btn btn-sm btn-outline-success" type="submit" data-toggle="tooltip" data-placement="top" title="Editar"><span class="glyphicon glyphicon-pencil"></span></button></a>
+          </td>
+      </tr>
+    {{/each}}
+  </tbody>
+  <tfoot>
+    <tr>
+          <th>id</th>
+          <th>comercio</th>
+          <th>imagen</th>
+          <th>stock</th>
+          <th>mensaje</th>
+    </tr>
+  </tfoot>
+
+</table>
+
+</div>
+<!-- /.container -->
+
+{{> modals }}

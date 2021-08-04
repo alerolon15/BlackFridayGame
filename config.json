@@ -1,6 +1,6 @@
 {
     "ConnectionString" : "mongodb://localhost:27017/BlackFridayGame",
-    "ConnectionStringHeroku" : "mongodb://BlackFridayGame:Nueva123@ds037215.mlab.com:37215/anl",
-    "userMongo" : "admin",
-    "passMongo" : "admin"
+    "ConnectionStringHeroku" : "mongodb://BlackAdmin:Black2021@cluster0.0ahrl.mongodb.net/BlackFridayGame",
+    "userMongo" : "BlackAdmin",
+    "passMongo" : "Black2021"
 }

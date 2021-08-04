@@ -1,0 +1,64 @@
+{
+    "locations": [
+      {
+        "id": 0,
+        "location": [ -34.58583860062426, -58.47798737084537 ],
+        "altitude": "0",
+        "altitudeMode": "Absolute",
+        "name": "Bauness",
+        "meshId": "http://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico",
+        "movementSmoothing": "0.05",
+        "maxNumberOfLocationUpdates": "0",
+        "useMovingAverage": false,
+        "hideObjectUtilItIsPlaced": true
+      },
+      {
+        "id": 1,
+        "location": [ -34.58651927439364, -58.4788572223397 ],
+        "altitude": "0",
+        "altitudeMode": "GroundRelative",
+        "name": "Bucarelli",
+        "meshId": "http://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico",
+        "movementSmoothing": "0.05",
+        "maxNumberOfLocationUpdates": "0",
+        "useMovingAverage": false,
+        "hideObjectUtilItIsPlaced": true
+      },
+      {
+        "id": 2,
+        "location": [ -34.58520755433525, -58.47846966474367 ],
+        "altitude": "0",
+        "altitudeMode": "GroundRelative",
+        "name": "Oscar",
+        "meshId": "http://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico",
+        "movementSmoothing": "0.05",
+        "maxNumberOfLocationUpdates": "0",
+        "useMovingAverage": false,
+        "hideObjectUtilItIsPlaced": true
+      },
+      {
+        "id": 3,
+        "location": [ -34.58619, -58.47813 ],
+        "altitude": "0",
+        "altitudeMode": "GroundRelative",
+        "name": "P",
+        "meshId": "http://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico",
+        "movementSmoothing": "0.05",
+        "maxNumberOfLocationUpdates": "0",
+        "useMovingAverage": false,
+        "hideObjectUtilItIsPlaced": true
+      },
+      {
+        "id": 4,
+        "location": [ -34.58250772783829, -58.47922530624082 ],
+        "altitude": "0",
+        "altitudeMode": "GroundRelative",
+        "name": "FuenteChas",
+        "meshId": "http://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico",
+        "movementSmoothing": "0.05",
+        "maxNumberOfLocationUpdates": "0",
+        "useMovingAverage": false,
+        "hideObjectUtilItIsPlaced": true
+      }
+    ]
+  }
